@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-      - feature/github_actions
+      - test_branch
 
 jobs:
   build:
