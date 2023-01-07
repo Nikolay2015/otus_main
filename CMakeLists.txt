@@ -5,7 +5,10 @@ set(PROJECT_VESRION 0.0.${PATCH_VERSION})
 
 project(helloworld VERSION ${PROJECT_VESRION})
 
+#add_subdirectory(${gtest_SOURCE_DIR}/googletest ${get_SOURCE_DIR})
+
 find_package(Boost COMPONENTS unit_test_framework REQUIRED)
+find_package(GTest)
 
 configure_file(version.h.in version.h)
 
@@ -31,6 +34,8 @@ target_link_libraries(helloworld_cli PRIVATE
 target_link_libraries(test_version
     ${Boost_LIBRARIES}
     helloworld
+    gtest
+    gtest_main
 )
 
 if (MSVC)
